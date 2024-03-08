@@ -11,11 +11,11 @@
 
 const User = [
   {
-    name:"Ahmed",
+    name:"ahmed",
     password:"123"
   },
   {
-    name:"omar",
+    name:"ibrahim",
     password:"123"
   },
   {
