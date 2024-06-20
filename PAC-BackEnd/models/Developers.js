@@ -1,28 +1,14 @@
-const Developers = [
-    {
-        developerId: 1,
-        image: "public/TMG.jpg",
-        coverImage: "public/Sell-Image.jpg",
-        name: "developer 1",
-        noOfProjects: -1,
-        age: 70
-    },
-    {
-        developerId: 2,
-        image: "public/TMG.jpg",
-        coverImage: "public/Sell-Image.jpg",
-        name: "developer 2",
-        noOfProjects: -1,
-        age: 50
-    },
-    {
-        developerId: 3,
-        image: "public/TMG.jpg",
-        coverImage: "public/Sell-Image.jpg",
-        name: "developer 3",
-        noOfProjects: -1,
-        age: 100
-    },
-]
+const mongoose = require('mongoose');
 
-module.exports = Developers;
+const developerSchema = new mongoose.Schema({
+  developerId: { type: Number, required: true, unique: true },
+  image: { type: String, required: true },
+  coverImage: { type: String, required: true },
+  name: { type: String, required: true },
+  noOfProjects: { type: Number, required: true },
+  age: { type: Number, required: true },
+}, { collection: 'Developers' });
+
+const Developer = mongoose.model('Developer', developerSchema);
+
+module.exports = Developer;

@@ -1,22 +1,12 @@
-const Locations = [
-    {
-        locationId: 1,
-        name: "location 1",
-        tax: "2%",
-        size: "2km"
-    },
-    {
-        locationId: 2,
-        name: "location 2",
-        tax: "7%",
-        size: "1km"
-    },
-    {
-        locationId: 3,
-        name: "location 3",
-        tax: "1%",
-        size: "5km"
-    },
-]
+const mongoose = require('mongoose');
 
-module.exports = Locations;
+const locationSchema = new mongoose.Schema({
+  locationId: { type: Number, required: true, unique: true },
+  name: { type: String, required: true },
+  tax: { type: String, required: true },
+  size: { type: String, required: true },
+}, { collection: 'Locations' });
+
+const Location = mongoose.model('Location', locationSchema);
+
+module.exports = Location;
